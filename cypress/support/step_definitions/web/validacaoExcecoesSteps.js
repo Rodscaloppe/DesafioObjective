@@ -3,7 +3,7 @@
  * Cobre tentativas de acesso incorretas (login inválido) e envio de formulários em branco (validação de obrigatoriedade).
  */
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import { loginPage, registerPage } from '../../pages';
+import { loginPage, registerPage } from '../../../pages';
 
 /**
  * Step: Quando preencho o campo {string} na tela de login com {string}

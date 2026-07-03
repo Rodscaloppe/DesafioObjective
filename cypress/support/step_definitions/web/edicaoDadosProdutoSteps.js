@@ -3,7 +3,7 @@
  * Interage 100% via DOM e Navegador.
  */
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import { productListAdminPage, productEditPage } from '../../pages';
+import { productListAdminPage, productEditPage } from '../../../pages';
 
 /**
  * Step: Dado a tabela exibe um produto chamado {string}

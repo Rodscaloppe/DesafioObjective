@@ -4,7 +4,7 @@
  * verificação de sessão, logout e login subsequente com a nova conta criada.
  */
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import { registerPage, loginPage, homePage } from '../../pages';
+import { registerPage, loginPage, homePage } from '../../../pages';
 
 // Armazenamento local temporário durante o fluxo do teste para reutilização no login
 let dynamicEmail = '';
