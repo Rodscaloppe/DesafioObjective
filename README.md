@@ -20,8 +20,9 @@ A arquitetura valida o ecossistema de e-commerce **ServeRest** ([https://front.s
 Certifique-se de possuir o **Node.js (v18+ ou v20+)** instalado.
 
 # Clone o repositório e instale as dependências
+```
 npm install
-
+```
 
 ### 2. Scripts de Execução
 
@@ -50,13 +51,6 @@ O framework foi projetado para suportar múltiplos ambientes (Local, Homologaç�
      "API_BASE_URL": "https://serverest.dev"
    }
    ```
-
-
-Você também pode injetar variáveis diretamente no terminal durante esteiras de CI/CD:
-```bash
-npx cypress run --env WEB_BASE_URL="https://homolog-front.serverest.dev",API_BASE_URL="https://homolog.serverest.dev"
-```
-
 ---
 
 ## Cobertura de Cenários
@@ -77,13 +71,6 @@ npx cypress run --env WEB_BASE_URL="https://homolog-front.serverest.dev",API_BAS
 - **Teste de Contrato PACT / OpenAPI**: Compilação em tempo real do schema getProdutos no arquivo swagger.json usando o validador **Ajv**, assegurando que os tipos e chaves obrigatórias cumprem o contrato assinado com o Backend.
 
 ---
-
-## Nota Técnica sobre o Pipeline CI/CD (GitHub Actions) e Frontend ServeRest
-
-Ao executar o pipeline em servidores de Integração Contínua (como o runner Linux *headless* do GitHub Actions), você pode notar que 4 dos 5 cenários da suíte **WEB (edicaoDadosProduto, gestaoCatalogoProdutos, jornadaNovoUsuario, manutencaoProdutos)** podem apresentar falha de timeout aguardando o redirecionamento:
-```text
-AssertionError: Timed out retrying after 10000ms: expected 'https://front.serverest.dev/cadastrarusuarios' to include '/home'
-```
 
 ### Explicação Técnica da Ocorrência:
 1. **Comportamento da Aplicação SPA**: A suíte WEB foi projetada para interagir 100% via DOM real sem API mocks. Quando o usuário preenche o cadastro e clica em **"Cadastrar"**, o React em front.serverest.dev dispara um POST /usuarios.
@@ -113,3 +100,12 @@ Abra diretamente no seu navegador:
 - **Page Object Model**: Todas as classes, variáveis de instâncias e métodos de páginas seguem a convenção **(ex: loginPage.accessPage(), productCreatePage.fillPrice())**.
 - **Isolamento de Estado**: Uso de timestamps **(Date.now())** para garantir e-mails e nomes de produtos únicos em cada execução, evitando falsos negativos por dados duplicados no servidor do ServeRest.
 - **Modularização Simétrica**: Separação clara em pastas correspondentes entre Gherkin **(features/web vs features/api)** e implementação de passos **(step_definitions/web vs step_definitions/api)**.
+
+---
+
+## Nota Técnica sobre o Pipeline CI/CD (GitHub Actions) e Frontend ServeRest
+
+Ao executar o pipeline em servidores de Integração Contínua (como o runner Linux *headless* do GitHub Actions), você pode notar que 4 dos 5 cenários da suíte **WEB (edicaoDadosProduto, gestaoCatalogoProdutos, jornadaNovoUsuario, manutencaoProdutos)** podem apresentar falha de timeout aguardando o redirecionamento:
+```text
+AssertionError: Timed out retrying after 10000ms: expected 'https://front.serverest.dev/cadastrarusuarios' to include '/home'
+```
