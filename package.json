@@ -1,0 +1,32 @@
+{
+  "name": "desafio-cypress-bdd",
+  "version": "1.0.0",
+  "description": "Projeto de E2E utilizando Cypress, Cucumber (BDD) para ServeRest",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "cy:run": "cypress run --spec \"cypress/e2e/features/**/*.feature\""
+  },
+  "keywords": [
+    "cypress",
+    "cucumber",
+    "bdd",
+    "qa",
+    "e2e",
+    "page-object"
+  ],
+  "author": "QA Engineer",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress": "^13.17.0",
+    "esbuild": "^0.24.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/support/step_definitions/**/*.{js,ts}"
+    ]
+  }
+}
