@@ -3,7 +3,7 @@
  * Interage 100% via DOM e Navegador com a listagem de produtos.
  */
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import { productListAdminPage } from '../../pages';
+import { productListAdminPage } from '../../../pages';
 
 /**
  * Step: Dado que existe um produto previamente cadastrado chamado {string}

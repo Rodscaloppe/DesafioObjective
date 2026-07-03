@@ -13,3 +13,4 @@ cypress/results/
 # Variáveis ​​de ambiente
 .env
 .env.local
+cypress.env.json

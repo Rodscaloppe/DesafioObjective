@@ -4,7 +4,7 @@
  * e validação da listagem recém-cadastrada.
  */
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import { productCreatePage, productListAdminPage } from '../../pages';
+import { productCreatePage, productListAdminPage } from '../../../pages';
 
 /**
  * Step: Quando preencho o campo {string} com {string}

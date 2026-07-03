@@ -3,7 +3,7 @@
  * Centraliza ações frequentes como login de administrador e navegação pelo menu principal.
  */
 import { Given } from '@badeball/cypress-cucumber-preprocessor';
-import { loginPage, homePage } from '../../pages';
+import { loginPage, homePage } from '../../../pages';
 
 /**
  * Step: Dado que realizo login no sistema com credenciais de Administrador

@@ -6,7 +6,11 @@
   "scripts": {
     "test": "cypress run",
     "test:open": "cypress open",
-    "cy:run": "cypress run --spec \"cypress/e2e/features/**/*.feature\""
+    "cy:run:web": "cypress run --spec \"cypress/e2e/features/web/**/*.feature\"",
+    "cy:run:api": "cypress run --spec \"cypress/e2e/features/api/**/*.feature\"",
+    "cy:run": "cypress run",
+    "report:merge": "mochawesome-merge cypress/reports/html/.jsons/*.json > cypress/reports/html/merged.json && marge cypress/reports/html/merged.json -f index -o cypress/reports/html",
+    "test:report": "npm run cy:run && npm run report:merge"
   },
   "keywords": [
     "cypress",
@@ -21,8 +25,11 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "ajv": "^8.20.0",
     "cypress": "^13.17.0",
-    "esbuild": "^0.24.2"
+    "cypress-mochawesome-reporter": "^3.8.4",
+    "esbuild": "^0.24.2",
+    "mochawesome-merge": "^4.4.1"
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": [
