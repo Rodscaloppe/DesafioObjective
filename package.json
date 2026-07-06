@@ -29,7 +29,9 @@
     "cypress": "^13.17.0",
     "cypress-mochawesome-reporter": "^3.8.4",
     "esbuild": "^0.24.2",
-    "mochawesome-merge": "^4.4.1"
+    "mochawesome-merge": "^4.4.1",
+    "serverest": "^2.29.7",
+    "wait-on": "^9.0.10"
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": [

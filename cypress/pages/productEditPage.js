@@ -6,8 +6,10 @@ class ProductEditPage {
     return this;
   }
 
-  verifyPrefilledData(name) {
+  verifyPrefilledData(name, price = '600', quantity = '50') {
     cy.get('[data-testid="nome"]').should('have.value', name);
+    if (price) cy.get('[data-testid="preco"]').should('have.value', price);
+    if (quantity) cy.get('[data-testid="quantity"]').should('have.value', quantity);
     return this;
   }
 

@@ -10,13 +10,7 @@ import { loginPage, homePage } from '../../../pages';
  * Realiza a autenticação prévia com usuário administrador padrão para acessar áreas restritas do sistema.
  */
 Given('que realizo login no sistema com credenciais de Administrador', () => {
-  const adminEmail = `admin_e2e_${Date.now()}@qa.com`;
-  cy.visit('/cadastrarusuarios');
-  cy.get('[data-testid="nome"]').type('Admin E2E');
-  cy.get('[data-testid="email"]').type(adminEmail);
-  cy.get('[data-testid="password"]').type('admin123');
-  cy.get('[data-testid="checkbox"]').check();
-  cy.get('[data-testid="cadastrar"]').click();
+  cy.loginViaAPI({ administrador: 'true' });
   homePage.verifyOnHomePage();
 });
 

@@ -30,8 +30,15 @@ jobs:
       - name: Install Dependencies
         run: npm ci || npm install
 
+      - name: Start ServeRest Local API Server
+        run: |
+          npx serverest &
+          npx wait-on http://localhost:3000 -t 30000
+
       - name: Run API REST & Contract Suite (Ajv / OpenAPI)
         run: npm run cy:run:api
+        env:
+          API_BASE_URL: http://localhost:3000
 
       - name: Run WEB E2E Suite (Pure Browser / DOM)
         run: npm run cy:run:web

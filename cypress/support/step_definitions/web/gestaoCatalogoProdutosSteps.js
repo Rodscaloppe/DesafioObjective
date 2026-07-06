@@ -58,13 +58,13 @@ Then('sou redirecionado para a página {string}', (pageName) => {
 });
 
 Then('o produto {string} deve ser exibido na tabela', (productName) => {
-  cy.contains('table tbody tr', currentCreatedProduct).should('be.visible');
+  productListAdminPage.verifyProductInTable(currentCreatedProduct);
 });
 
 Then('o preço exibido na tabela deve ser {string}', (price) => {
-  cy.contains('table tbody tr', currentCreatedProduct).contains(price).should('be.visible');
+  productListAdminPage.verifyProductPriceInTable(currentCreatedProduct, price);
 });
 
 Then('a quantidade exibida na tabela deve ser {string}', (quantity) => {
-  cy.contains('table tbody tr', currentCreatedProduct).contains(quantity).should('be.visible');
+  productListAdminPage.verifyProductQuantityInTable(currentCreatedProduct, quantity);
 });

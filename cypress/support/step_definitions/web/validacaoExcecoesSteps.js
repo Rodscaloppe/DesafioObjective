@@ -36,5 +36,11 @@ Then('devo permanecer na página de {string}', (pageName) => {
 });
 
 Then('devo visualizar a mensagem de erro {string}', (errorMessage) => {
-  cy.contains(errorMessage).should('be.visible');
+  cy.url().then((url) => {
+    if (url.includes('/login')) {
+      loginPage.verifyErrorMessage(errorMessage);
+    } else {
+      registerPage.verifyErrorMessage(errorMessage);
+    }
+  });
 });
